@@ -35,19 +35,19 @@ const LanguageDropdown: React.FC = () => {
     <div ref={ref} className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-              className="mr-4 bg-white text-green-600 hover:bg-gray-50 border border-green-600 px-4 py-2 rounded-md text-sm font-medium"
+        className="mr-2 bg-white text-green-600 hover:bg-gray-50 border border-green-600 px-4 py-2 rounded-md text-sm font-medium dark:bg-gray-900 dark:hover:bg-green-600 dark:hover:text-gray-900 hover:bg-green-700 hover:text-white"
       >
         {t("Language")}
       </button>
       {isOpen && (
-        <div className="absolute z-10 bg-white rounded shadow-lg mt-1 w-48">
+        <div className="absolute z-10 bg-white rounded shadow-lg mt-1 w-48 dark:bg-gray-900">
           <a
             href="#"
             onClick={(event) => {
               event.preventDefault();
               selectLanguage("en");
             }}
-            className="block font-serif px-4 py-2 text-lg rounded text-gray-700 hover:bg-gray-100"
+            className="block font-serif px-4 py-2 text-lg rounded text-gray-700 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
           >
             English
           </a>
@@ -57,7 +57,7 @@ const LanguageDropdown: React.FC = () => {
               event.preventDefault();
               selectLanguage("cn");
             }}
-            className="block font-serif px-4 py-2 text-lg rounded text-gray-700 hover:bg-gray-100"
+            className="block font-serif px-4 py-2 text-lg rounded text-gray-700 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
           >
             中文
           </a>
@@ -67,7 +67,7 @@ const LanguageDropdown: React.FC = () => {
               event.preventDefault();
               selectLanguage("es");
             }}
-            className="block font-serif px-4 py-2 text-lg rounded text-gray-700 hover:bg-gray-100"
+            className="block font-serif px-4 py-2 text-lg rounded text-gray-700 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
           >
             Español
           </a>
@@ -77,7 +77,7 @@ const LanguageDropdown: React.FC = () => {
               event.preventDefault();
               selectLanguage("el");
             }}
-            className="block font-serif px-4 py-2 text-lg rounded text-gray-700 hover:bg-gray-100"
+            className="block font-serif px-4 py-2 text-lg rounded text-gray-700 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
           >
             Ελληνικά
           </a>

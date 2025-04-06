@@ -75,10 +75,10 @@
         "Rows per page": "Rows per page"
       },
       "usecases": {
-        "User Cases": "User Cases",
+        "Use Cases": "Use Cases",
         "All categories": "All categories",
         "Search by title": "Search by title",
-        "Search by content": "Search by content",
+        "Search by tag": "Search by tag",
         "Internet": "Internet",
         "EV": "EV",
         "Security": "Security",

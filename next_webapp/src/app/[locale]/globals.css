@@ -15,7 +15,7 @@
     --background-end-rgb: 0, 0, 0;
   }
 } */
- /* Uncomment above when dark mode is implemented */
+/* Uncomment above when dark mode is implemented */
 
 body {
   color: rgb(var(--foreground-rgb));

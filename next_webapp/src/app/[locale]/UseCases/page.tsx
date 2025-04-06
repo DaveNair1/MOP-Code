@@ -24,38 +24,53 @@ async function searchUseCases(searchParams: SearchParams) {
 }
 
 const UseCases = () => {
-  const [caseStudies, setCaseStudies] = useState([])
-  const [filteredCaseStudies, setFilteredCaseStudies] = useState(caseStudies);
+  const [filteredCaseStudies, setFilteredCaseStudies] = useState<CaseStudy[]>(
+    []
+  );
+  const [selectedCaseStudy, setSelectedCaseStudy] = useState<CaseStudy | null>(
+    null
+  );
+  const t = useTranslations("usecases");
 
   useEffect(() => {
-    handleSearch("", SEARCH_MODE.TITLE, CATEGORY.ALL)
-  }, [])
+    handleSearch("", SEARCH_MODE.TITLE, CATEGORY.ALL);
+  }, []);
 
   const handleSearch = async (
     searchTerm: string,
     searchMode: SEARCH_MODE,
     category: CATEGORY
   ) => {
-    const res = await searchUseCases({ searchTerm, searchMode, category });
-    console.log("🚀 ~ UseCases ~ res:", res);
-    setFilteredCaseStudies(res?.filteredStudies);
+    try {
+      const res = await searchUseCases({ searchTerm, searchMode, category });
+      setFilteredCaseStudies(res?.filteredStudies);
+    } catch (error) {
+      console.error("Error fetching use cases:", error);
+      setFilteredCaseStudies([]);
+    }
   };
 
-  const t = useTranslations("usecases");
-
   return (
-    <div className="font-sans bg-gray-100">
+    <div className="flex flex-col min-h-screen font-sans bg-gray-200 dark:bg-gray-800">
       <Header />
-      <main>
-        <div className="app">
-          <section className="px-10 pt-5">
+      <main className="flex-grow">
+        <div className="max-w-7xl mx-auto px-4 lg:px-10">
+          <section className="py-5">
             <p>
-              <span className="text-4xl font-bold text-black">
-                {t("User Cases")}
+              <span className="text-4xl font-bold text-black dark:text-white">
+                {t("Use Cases")}
               </span>
             </p>
-            <SearchBar onSearch={handleSearch} />
-            <PreviewComponent caseStudies={filteredCaseStudies} />
+            {/* Hide search bar when a tile is selected */}
+            {!selectedCaseStudy && <SearchBar onSearch={handleSearch} />}
+            <PreviewComponent
+              caseStudies={filteredCaseStudies}
+              selectedCaseStudy={selectedCaseStudy}
+              onSelectCaseStudy={(study: CaseStudy) =>
+                setSelectedCaseStudy(study)
+              }
+              onBack={() => setSelectedCaseStudy(null)}
+            />
           </section>
         </div>
       </main>

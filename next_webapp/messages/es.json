@@ -75,10 +75,10 @@
         "Enter Tag name": "Ingrese el nombre de la etiqueta"
     },
     "usecases": {
-        "User Cases": "Casos de Usuario",
+        "Use Cases": "Casos de Usuario",
         "All categories": "Todas las categorías",
         "Search by title": "Buscar por título",
-        "Search by content": "Buscar por etiqueta",
+        "Search by tag": "Buscar por etiqueta",
         "Internet": "Internet",
         "EV": "VE (Vehículo Eléctrico)",
         "Security": "Seguridad",
